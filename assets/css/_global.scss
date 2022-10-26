@@ -1,0 +1,247 @@
+@font-face {
+    font-family: "ShamelFamily";
+    src: url(../fonts/ShamelFamily/ShamelFamily-SansMedium.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "ShamelFamily";
+    src: url(../fonts/ShamelFamily/ShamelFamily-SansBook.woff2);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ShamelFamily";
+    src: url(../fonts/ShamelFamily/ShamelFamily-SansBold.woff2);
+    font-weight: 900;
+}
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "ShamelFamily" , sans-serif ;
+    scroll-behavior: smooth !important;
+
+    &::selection{
+        background-color: #388B9F;
+        color: #fff; 
+    }
+    
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #388B9F;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #6EB464, #388B9F);
+        border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #388B9F, #6EB464);
+    }
+}
+
+.overflowNone{
+    overflow: hidden;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+.form-control:focus {
+    outline-width: 0px !important;
+    outline-color: transparent !important;
+    box-shadow: 0 0 0 0 rgba($color: #000000, $alpha: 0);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.overflowNone{
+    overflow: hidden;
+}
+
+.buttons-contain {
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    .custom-btn {
+        width: 120px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: #388B9F;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        position: relative;
+        z-index: 9;
+        overflow: hidden;
+    
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #6EB464, #388B9F);
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all .3s linear;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 89px;
+
+    h1 {
+        color: #000000;
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 45px;
+        margin-bottom: 17px;
+    }
+
+    p {
+        color: #A7A7A7;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 21px;
+        margin: 0px;
+    }
+}
+
+.general-pattern {
+    position: relative;
+    z-index: 9;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('../images/pattern.svg') top right/ contain no-repeat;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+}
+
+.owl-theme .owl-nav {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+
+    button.owl-next,
+    button.owl-prev {
+        width: 45px;
+        height: 45px;
+        background-color: #6EB464;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    
+        i {
+            color: #fff;
+            font-size: 15px;
+        }
+    
+        &:hover, &:focus {
+            background: linear-gradient(180deg, #6EB464, #388B9F);
+        }
+    }
+    
+    button.owl-next {
+        border-radius:  28px 0px 28px 28px;
+    }
+
+    button.owl-prev {
+        border-radius:  0px 28px 28px;
+    }
+}
+
+.progress-wrap {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    display: block;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba($color: #6EB464 , $alpha: .2);
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transform: translateY(130%);
+    z-index: 9998;
+    transition: all 200ms linear;
+
+    &::after {
+        content: '\f062';
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        font-size: 18px;
+        color: #388B9F;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        font-family: "Font Awesome 5 Free"; 
+        font-weight: 900;
+    }
+
+    svg {
+        path {
+            fill: #f8f8f8;
+        }
+        &.progress-circle{
+            path {
+                stroke: #388B9F;
+                stroke-width: 4;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    &.active-progress{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
